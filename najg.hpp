@@ -3,7 +3,7 @@
 #include <fstream>
 #include <vector>
 
-#define NAJG_VERSION 1.0
+#define NAJG_VERSION 1.1
 
 class najg
 {
@@ -28,13 +28,13 @@ class najg
             }
             string = res;
         }
-        static bool is_whitespace(std::string string)
+        static bool is_whitespace(const std::string string)
         {
-            int whitespace = 0;
-            for (; string[whitespace] == ' '; whitespace++);
-
-            if (whitespace == string.size()) { return true; }
-            return false;
+            for (int i = 0; i < string.size(); i++)
+            {
+                if (string[i] != ' ') return false;
+            }
+            return true;
         }
 
         struct subclass_data
